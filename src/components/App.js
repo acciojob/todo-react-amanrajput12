@@ -24,8 +24,9 @@ const App = () => {
   }
 
   return (
-    <div className="App">
+    <div  >
       {/* Do not remove the main div */}
+       <div className="App">
       <h3>To-Do-List</h3>
       <section>
         <input
@@ -34,8 +35,9 @@ const App = () => {
           type="text"
         />
         <button onClick={AddTodo}>Add Todo</button>
-        {todos.map((todo) =><Todo key={todo.id} todos={todo} deleteTodo={deleteTodo} />)}
       </section>
+      </div>
+        {todos.map((todo) =><Todo key={todo.id} todos={todo} deleteTodo={deleteTodo} />)}
     </div>
   );
 };

@@ -4,7 +4,7 @@ function Todo({todos,deleteTodo}){
     console.log("in todo comp ",todos)
     return(
         <div className="todo">
-            <h3>{todos.text}</h3>
+            <h5>{todos.text}</h5>
         <button className="btn" onClick={()=>deleteTodo(todos.id)}>Delete</button>
         </div>
     )
