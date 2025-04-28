@@ -37,7 +37,12 @@ const App = () => {
         <button onClick={AddTodo}>Add Todo</button>
       </section>
       </div>
-        {todos.map((todo) =><Todo key={todo.id} todos={todo} deleteTodo={deleteTodo} />)}
+      <ul>
+        {todos.map((todo) => <li>
+        <Todo key={todo.id} todos={todo} deleteTodo={deleteTodo} />
+        </li>
+        )}
+        </ul>
     </div>
   );
 };
