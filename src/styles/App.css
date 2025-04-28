@@ -1,1 +1,15 @@
+.App{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.todo{
+    display: flex;
+    gap: 100px;
+}
+
+.btn{
+    height: auto;
+    margin: auto;
+}

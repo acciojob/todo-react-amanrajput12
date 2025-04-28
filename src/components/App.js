@@ -1,13 +1,43 @@
-
-import React from "react";
+import React, { useState } from "react";
 import './../styles/App.css';
+import Todo from "./Todo.js";
 
 const App = () => {
-  return (
-    <div>
-        {/* Do not remove the main div */}
-    </div>
-  )
-}
+  const [inputData, setInputData] = useState("");
+  const [todos, setTodos] = useState([]); 
 
-export default App
+  function AddTodo() {
+    console.log("input value", inputData);
+    setTodos(prev => [
+      ...prev, 
+                 
+      { id:Date.now(),  text: inputData }    
+    ]);
+    setInputData("");
+  }
+
+  console.log("todos", todos);
+  
+  function deleteTodo(id){
+    console.log("delete todo ",id)
+    setTodos(prev=>prev.filter(todo=>todo.id!=id))
+  }
+
+  return (
+    <div className="App">
+      {/* Do not remove the main div */}
+      <h3>To-Do-List</h3>
+      <section>
+        <input
+          value={inputData}
+          onChange={(e) => setInputData(e.target.value)}
+          type="text"
+        />
+        <button onClick={AddTodo}>Add Todo</button>
+        {todos.map((todo) =><Todo key={todo.id} todos={todo} deleteTodo={deleteTodo} />)}
+      </section>
+    </div>
+  );
+};
+
+export default App;
